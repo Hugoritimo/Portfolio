@@ -1,34 +1,3 @@
-// Certifique-se de que o conteúdo seja renderizado corretamente sem animações
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Conteúdo carregado sem animações.');
-});
-
-// Substitua 'seu-usuario' pelo seu nome de usuário do GitHub
-const githubUsername = 'Hugoritimo';
-const projectsContainer = document.getElementById('projects-container');
-
-// Função para buscar projetos do GitHub
-async function fetchGitHubProjects() {
-    try {
-        const response = await fetch(`https://api.github.com/users/${githubUsername}/repos`);
-        const repos = await response.json();
-
-        repos.forEach(repo => {
-            const projectElement = document.createElement('div');
-            projectElement.classList.add('project');
-
-            projectElement.innerHTML = `
-                <h3>${repo.name}</h3>
-                <p>${repo.description ? repo.description : 'No description available.'}</p>
-                <a href="${repo.html_url}" target="_blank">Ver Projeto</a>
-            `;
-
-            projectsContainer.appendChild(projectElement);
-        });
-    } catch (error) {
-        console.error('Erro ao buscar projetos do GitHub:', error);
-    }
-}
 // Registrar ScrollTrigger para efeitos baseados em rolagem
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,7 +44,7 @@ gsap.utils.toArray('.content-section').forEach((section) => {
 // Função para buscar projetos do GitHub e animá-los
 async function fetchGitHubProjects() {
     try {
-        const response = await fetch(`https://api.github.com/users/${githubUsername}/repos`);
+        const response = await fetch(`https://api.github.com/users/Hugoritimo/repos`);
         const repos = await response.json();
 
         repos.forEach(repo => {
@@ -84,7 +53,7 @@ async function fetchGitHubProjects() {
 
             projectElement.innerHTML = `
                 <h3>${repo.name}</h3>
-                <p>${repo.description ? repo.description : 'No description available.'}</p>
+                <p>${repo.description ? repo.description : 'Sem descrição disponível.'}</p>
                 <a href="${repo.html_url}" target="_blank">Ver Projeto</a>
             `;
 
@@ -116,7 +85,3 @@ document.querySelectorAll('.navbar a').forEach(anchor => {
         });
     });
 });
-
-
-// Chama a função para buscar e exibir os projetos
-fetchGitHubProjects();

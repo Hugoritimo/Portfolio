@@ -7,7 +7,7 @@
 
 /* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: #0a0a0a;
     color: #fff;
     overflow-x: hidden;
@@ -16,12 +16,12 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh; /* Ocupa toda a altura da viewport */
+    height: 100vh; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #4e4e4e; /* Cor de fundo mais clara */
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
     position: relative;
     text-align: center;
     overflow: hidden;
@@ -29,40 +29,45 @@ body {
 }
 
 .hero-content {
-    max-width: 80%;
+    max-width: 90%;
     z-index: 2;
     position: relative;
-    margin-bottom: 50px; /* Ajusta para não sobrepor a navbar */
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
 }
 
 .hero-title {
-    font-size: 4vw;
+    font-size: clamp(2rem, 4vw, 4rem);
     font-weight: 700;
     margin-bottom: 20px;
-    opacity: 1; /* Certifique-se de que o texto seja visível */
+    color: #08a88a;
 }
 
 .hero-description {
-    font-size: 1.5em;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    font-weight: 400;
     margin-bottom: 20px;
-    opacity: 1; /* Certifique-se de que o texto seja visível */
+    color: #f0f0f0;
 }
 
 .hero-button {
     padding: 15px 30px;
     font-size: 1em;
-    background-color: #fff;
-    color: #000;
+    font-weight: 500;
+    background-color: #08a88a;
+    color: #fff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    opacity: 1; /* Certifique-se de que o botão seja visível */
 }
 
 .hero-button:hover {
-    transform: scale(1.05);
-    background-color: #e0e0e0;
+    transform: scale(1.1);
+    background-color: #06a078;
 }
 
 /* Navbar Styles */
@@ -71,7 +76,7 @@ body {
     bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(80, 80, 80, 0.9);
+    background: rgba(80, 80, 80, 0.8);
     padding: 10px 20px;
     border-radius: 30px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
@@ -81,9 +86,11 @@ body {
 .navbar ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     padding: 0;
     margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .navbar ul li a {
@@ -92,6 +99,7 @@ body {
     padding: 10px 20px;
     border-radius: 20px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
 }
 
 .navbar ul li a:hover {
@@ -127,11 +135,14 @@ body {
 }
 
 .content-section h2 {
-    font-size: 3em;
+    font-size: 2.5em;
+    font-weight: 700;
     margin-bottom: 20px;
 }
+
 .content-section p {
     font-size: 1.2em;
+    font-weight: 400;
 }
 
 /* Projects Section */
@@ -149,6 +160,7 @@ body {
     gap: 20px;
     justify-content: center;
 }
+
 .gallery-container img {
     width: 300px;
     height: 200px;
@@ -159,4 +171,32 @@ body {
 
 .gallery-container img:hover {
     transform: scale(1.1);
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .content-section h2 {
+        font-size: 2rem;
+    }
 }
